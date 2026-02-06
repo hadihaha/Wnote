@@ -10,19 +10,17 @@ export default function App() {
     { title: "Stories", id: 2, on: false },
     { title: "Journals", id: 3, on: false },
   ])
-
+  const activeTab = tabs.find((tab) => tab.on);
   return (
-<<<<<<< HEAD
     <SafeAreaView style={styles.container}>
       <Pad notes={notes} setNotes={setNotes} />
-      <Ntab />
+      <Ntab switch={switchTab} />
+      <View style={styles.container}>
+
+        <Text>chatbot</Text>
+        <StatusBar style="auto" />
+      </View>
     </SafeAreaView>
-=======
-    <View style={styles.container}>
-      <Text>chatbot</Text>
-      <StatusBar style="auto" />
-    </View>
->>>>>>> 56898d47ea40c56d6faeb3aff87a834d0b51430c
   );
 }
 
