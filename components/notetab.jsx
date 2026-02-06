@@ -5,7 +5,7 @@ const tabs = [
   { title: "Journals", id: 3, on: false },
 ];
 
-function notetab({ notes, setNotes }) {
+function Ntab({ notes, setNotes }) {
   const switchTab = (id) => {
     setNotes((prevTabs) =>
       prevTabs.map((tab) => ({
