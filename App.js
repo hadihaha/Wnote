@@ -7,15 +7,16 @@ import { useState } from 'react';
 import Ntab from './components/notetab';
 export default function App() {
   const [notes, setNotes] = useState([
-    { title: "Notes", nId: 1, on: true },
-    { title: "Stories", nId: 2, on: false },
-    { title: "Journals", nId: 3, on: false },
+    { title: "Notes", nId: 1, text: 'dddddddd', on: true },
+    { title: "Stories", nId: 2, text: 'ddddd2dd', on: false },
+    { title: "Journals", nId: 3, text: 'dddd21ddd', on: false },
   ])
   const activeTab = notes.find((tab) => tab.on);
   return (
     <SafeAreaView style={styles.container}>
-      <Pad notes={notes} setNotes={setNotes} />
       <Ntab notes={notes} setNotes={setNotes} />
+      <Pad notes={notes} setNotes={setNotes} />
+
       <View style={styles.container}>
 
         <Text>chatbot</Text>
