@@ -12,10 +12,17 @@ export default function App() {
   ])
 
   return (
+<<<<<<< HEAD
     <SafeAreaView style={styles.container}>
       <Pad notes={notes} setNotes={setNotes} />
       <Ntab />
     </SafeAreaView>
+=======
+    <View style={styles.container}>
+      <Text>chatbot</Text>
+      <StatusBar style="auto" />
+    </View>
+>>>>>>> 56898d47ea40c56d6faeb3aff87a834d0b51430c
   );
 }
 
