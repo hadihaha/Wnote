@@ -1,5 +1,6 @@
+import 'react-native-url-polyfill/auto';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, KeyboardAvoidingView, } from 'react-native';
+import { StyleSheet, Text, View, KeyboardAvoidingView, Platform } from 'react-native';
 import Pad from './components/pad';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from 'react';

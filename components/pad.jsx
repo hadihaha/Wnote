@@ -1,8 +1,8 @@
 import { supabase } from "../lib/supabase";
 import React from "react";
-import { View, TextInput, StyleSheet, Pressable } from "react-native";
+import { View, TextInput, StyleSheet, Pressable, Text } from "react-native";
 import { useState, useEffect } from "react";
-function Pad({ notes, setNotes }) {
+export default function Pad({ notes, setNotes }) {
   const [text, setText] = useState("");
 
   const activeTab = notes.find((tab) => tab.on);
@@ -18,7 +18,10 @@ function Pad({ notes, setNotes }) {
     const { data, error } = await supabase
       .from("notes")
       .upsert({
-        note_id: activeTab.nId === "" ? null : activeTab.nId, // If this is null, a new note is made. If it has a value, it updates.
+        note_id:
+          activeTab.nId === undefined || activeTab.nId === null
+            ? null
+            : activeTab.nId, // If this is null, a new note is made. If it has a value, it updates.
         note: text, // Put your text into the 'content' column
       })
       .select() // Ask Supabase to send the saved data back
@@ -27,8 +30,12 @@ function Pad({ notes, setNotes }) {
     if (error) {
       console.error("Save failed:", error.message);
     } else if (data) {
-      // This stores the whole row {id, content, user_id, created_at} in your state
-      setNotes(data);
+      // FIX: Update only the active tab in the array, don't replace the whole array!
+      setNotes((prevTabs) =>
+        prevTabs.map((tab) =>
+          tab.on ? { ...tab, nId: data.id, text: data.note } : tab,
+        ),
+      );
       console.log("Note saved and stored in object:", data.id);
     }
   };
@@ -64,9 +71,8 @@ const Styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 20,
     fontSize: 16,
-    widtht: "100%",
+    width: "100%",
     height: "auto",
     lineHeight: 24,
   },
 });
-export default Pad;
