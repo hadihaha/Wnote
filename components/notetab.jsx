@@ -4,17 +4,20 @@ const tabs = [
   { title: "Stories", id: 2, on: false },
   { title: "Journals", id: 3, on: false },
 ];
-function notetab() {
+
+function notetab({ notes, setNotes }) {
+  const switchTab = (id) => {
+    setNotes((prevTabs) =>
+      prevTabs.map((tab) => ({
+        ...tab,
+        on: tab.id === id, // Set true for the clicked ID, false for others
+      })),
+    );
+  };
   return (
     <View name="tabContainer" style={styles.tabContainer}>
-      {tabs.map((item) => (
-        <Pressable
-          onPress={() => {
-            item.on = true;
-          }}
-          key={item.id}
-          style={styles.tab}
-        />
+      {notes.map((item) => (
+        <Pressable onPress={switchTab} key={item.id} style={styles.tab} />
       ))}
     </View>
   );
@@ -33,4 +36,4 @@ const styles = StyleSheet.create({
     width: "50",
   },
 });
-export default notetab;
+export default Ntab;

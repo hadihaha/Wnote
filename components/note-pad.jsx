@@ -1,8 +1,7 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../lib/supabase";
 import { useState } from "react";
 import {
   Alert,
-  KeyboardAvoidingView,
   Platform,
   Pressable,
   StyleSheet,
@@ -14,7 +13,7 @@ function NotePad() {
   const [isUploading, setIsUploading] = useState(false);
   const [text, setText] = useState("");
   async function saveNoteToSupabase() {
-    if (!text) return; // Don't upload empty text
+    if (!text) return;
 
     setIsUploading(true);
     const { error } = await supabase.from("notes").insert({
@@ -30,7 +29,7 @@ function NotePad() {
     }
   }
   return (
-    <SafeAreaView>
+    <View>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardContainer}
@@ -45,7 +44,7 @@ function NotePad() {
         <TextInput
           style={styles.input}
           placeholder="Start typing your story..."
-          placeholderTextColor="#aaa"
+          placeholderTextColor="#080808"
           multiline={true}
           textAlignVertical="top"
           autoFocus={true}
@@ -53,7 +52,7 @@ function NotePad() {
           onChangeText={setText}
         />
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 }
 
