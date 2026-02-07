@@ -1,17 +1,17 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Chatbot from "../screens/ChatScreen";
-import Settings from "../screens/textEditor";
+import Settings from "../screens/AboutScreen";
 import React from "react";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import TextEditor from "../screens/textEditor";
+import About from "../screens/AboutScreen";
 
 const Tab = createBottomTabNavigator();
 
 const MainNavigator = () => {
    return (
       <Tab.Navigator>
-         <Tab.Screen name="noter" component={TextEditor} options={ 
+         <Tab.Screen name="About" component={About} options={ 
             {
                 tabBarIcon: ({color , size}) => {
                     
