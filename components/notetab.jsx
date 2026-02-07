@@ -2,12 +2,16 @@
 import { Pressable, StyleSheet, View } from "react-native";
 =======
 import { Pressable, StyleSheet, View, Text } from "react-native";
+<<<<<<< HEAD
+>>>>>>> parent of 5d80e1d (Add Save button and note text handling)
+=======
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
 const tabs = [
   { title: "Notes", id: 1, on: true },
   { title: "Stories", id: 2, on: false },
   { title: "Journals", id: 3, on: false },
 ];
+<<<<<<< HEAD
 <<<<<<< HEAD
 function notetab() {
   return (
@@ -19,6 +23,8 @@ function notetab() {
           }}
           key={item.id}
 =======
+=======
+>>>>>>> parent of 5d80e1d (Add Save button and note text handling)
 
 export default function Ntab({ notes, setNotes }) {
   const switchTab = (id) => {
@@ -38,6 +44,9 @@ export default function Ntab({ notes, setNotes }) {
         <Pressable
           onPress={() => switchTab(item.nId)}
           key={item.nId}
+<<<<<<< HEAD
+>>>>>>> parent of 5d80e1d (Add Save button and note text handling)
+=======
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
           style={styles.tab}
         />
@@ -46,6 +55,7 @@ export default function Ntab({ notes, setNotes }) {
   );
 }
 const styles = StyleSheet.create({
+<<<<<<< HEAD
 <<<<<<< HEAD
   notetabContainer: {
     flex: 1,
@@ -59,13 +69,25 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 30,
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
+=======
+  tabContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    width: "100%",
+    height: 30,
+>>>>>>> parent of 5d80e1d (Add Save button and note text handling)
     flexDirection: "row",
   },
   tab: {
     flex: 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: "30",
     width: "50",
+=======
+    height: 30,
+    width: 50,
+>>>>>>> parent of 5d80e1d (Add Save button and note text handling)
 =======
     height: 30,
     width: 50,
