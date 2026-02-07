@@ -11,14 +11,6 @@ const Tab = createBottomTabNavigator();
 const MainNavigator = () => {
    return (
       <Tab.Navigator>
-         <Tab.Screen name="About" component={About} options={ 
-            {
-                tabBarIcon: ({color , size}) => {
-                    
-                    return(<MaterialCommunityIcons name="settings-helper" size={size} color={color} />)
-                }
-            }
-         }   />
          <Tab.Screen name="Chat" component={Chatbot} options={
             {
                 tabBarIcon: ({color ,size}) => {
@@ -27,9 +19,14 @@ const MainNavigator = () => {
                 }
             }
          }/>
-
-
-
+         <Tab.Screen name="About" component={About} options={ 
+            {
+                tabBarIcon: ({color , size}) => {
+                    
+                    return(<MaterialCommunityIcons name="settings-helper" size={size} color={color} />)
+                }
+            }
+         }   />
       </Tab.Navigator>
    );
 }
