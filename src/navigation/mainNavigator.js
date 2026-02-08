@@ -1,8 +1,8 @@
 import React from "react";
-// 1. Import Native Stack
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// 2. Import all your screens
+
 import main from "../screens/main";
 
 import Noter from "../screens/noter";

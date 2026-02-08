@@ -59,7 +59,7 @@ export default function Chatbot() {
           onPress={sendMessage}
           >
 
-             <FontAwesome name="send" size={16} color="white" />
+             <FontAwesome name="send" size={16} color="blue" />
            </TouchableOpacity>
            
 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   sendButton: {
-    backgroundColor: '#ffffff00',
+    backgroundColor: '#e4292900',
     width: 35,
     height: 35,
     alignItems:'center',
