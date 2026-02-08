@@ -6,6 +6,8 @@ import { Pressable, StyleSheet, View, Text } from "react-native";
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
 =======
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
+import supabase from "../lib/supabase";
+
 const tabs = [
   { title: "Notes", id: 1, on: true },
   { title: "Stories", id: 2, on: false },
@@ -38,6 +40,26 @@ export default function Ntab({ notes, setNotes }) {
       })),
     );
   };
+    const activeTab = notes.find((tab) => tab.on);
+    const { data, error } = await supabase
+      .from("notes")
+      .upsert({
+        Nid:
+          activeTab.nId === undefined || activeTab.nId === null
+            ? null
+            : activeTab.nId,
+        note_title: activeTab.title,
+      .single();
+
+    if (error) {
+      console.error("Save failed:", error.message);
+        prevTabs.map((tab) =>
+          tab.on ? { ...tab, nId: data.id, text: data.note } : tab,
+        ),
+      );
+      console.log("Note saved and stored in object:", data.id);
+    }
+
   return (
     <View style={styles.tabContainer}>
       {notes.map((item) => (
