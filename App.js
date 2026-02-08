@@ -1,5 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-url-polyfill/auto';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
+import MainNavigator from './src/navigation/mainNavigator';
 
 export default function App() {
 <<<<<<< HEAD
@@ -26,6 +31,9 @@ export default function App() {
       </View>
     </SafeAreaView>
 >>>>>>> parent of 5d80e1d (Add Save button and note text handling)
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
 }
 
